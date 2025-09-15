@@ -14,5 +14,5 @@ nav a{
     text-decoration: none;
 }
 header ~ nav{
-    margin: auto;
+    margin-bottom: 0;
 }
