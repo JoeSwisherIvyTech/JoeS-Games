@@ -10,7 +10,7 @@ nav ul{
 }
 nav a{
     display: block;
-    border: 2px solid darkgreen;
+    border: 0px 2px solid darkgreen;
     padding: 14px;
     text-decoration: none;
 }
