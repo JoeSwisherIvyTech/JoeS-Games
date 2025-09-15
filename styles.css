@@ -20,7 +20,7 @@ nav a{
     margin-left: 10px;
     text-decoration: none;
 }
-nav a:hover{
+nav a:hover:not(.currentpage){
     /* display: block;
     color:white;
     outline-color: darkgreen; */
@@ -32,5 +32,6 @@ nav a:hover{
     text-decoration: none; */
 }
 nav a.currentpage{
-    background-color: black;
+    background-color: darkgray;
+    border-left: 2px dashed white;
 }
