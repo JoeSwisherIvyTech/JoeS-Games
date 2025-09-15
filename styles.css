@@ -13,3 +13,6 @@ nav a{
     padding: 14px;
     text-decoration: none;
 }
+header ~ nav{
+    margin: auto;
+}
