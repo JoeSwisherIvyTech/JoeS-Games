@@ -22,8 +22,9 @@ nav a{
 }
 nav a:hover{
     display: block;
-    color:darkgreen;
-    background-color: lightgreen;
+    color:white;
+    outline-color: darkgreen;
+    background-color: #079D68;
     border-left: 2px solid white;
     border-right: 2px solid white;
     padding: 14px;
