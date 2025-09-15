@@ -4,8 +4,8 @@ h1 {
 }
 nav ul{
     background-color: lightgreen;
+    list-style: none;
 }
 nav a{
     border: 1px solid white;
-    position: relative;
 }
