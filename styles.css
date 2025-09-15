@@ -1,14 +1,14 @@
 header h1 {
     color: white;
     background-color: darkgreen;
-    justify-content: center;
+    text-align: center;
 }
 nav ul{
     background-color: lightgreen;
     border: 2px solid darkgreen;
     list-style: none;
     display: flex;
-    justify-items: center;
+    justify-content: center;
 }
 nav a{
     display: block;
