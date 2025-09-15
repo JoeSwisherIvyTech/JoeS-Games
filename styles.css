@@ -5,7 +5,9 @@ h1 {
 nav ul{
     background-color: lightgreen;
     list-style: none;
+    display: flex;
 }
 nav a{
+    display: block;
     border: 1px solid white;
 }
