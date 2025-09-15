@@ -4,5 +4,5 @@ h1 {
 }
 nav ul{
     background-color: lightgreen;
-    display: inline-block;
+    display: flexbox;
 }
