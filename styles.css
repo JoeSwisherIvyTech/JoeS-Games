@@ -12,16 +12,14 @@ nav ul{
 }
 nav a{
     display: block;
-    border-left: 2px solid darkgreen;
-    border-right: 2px solid darkgreen;
+    background-color: darkgreen;
     padding: 14px;
     margin-left: 10px;
     text-decoration: none;
 }
 nav a:hover{
     display: block;
-    border-left: 2px solid white;
-    border-right: 2px solid white;
+    background-color: lightgreen;
     padding: 14px;
     text-decoration: none;
 }
