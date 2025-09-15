@@ -10,13 +10,15 @@ nav ul{
 }
 nav a{
     display: block;
-    border: 0px 2px solid darkgreen;
+    border-left: 2px solid darkgreen;
+    border-right: 2px solid darkgreen;
     padding: 14px;
     text-decoration: none;
 }
 nav a:hover{
     display: block;
-    border: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
     padding: 14px;
     text-decoration: none;
 }
