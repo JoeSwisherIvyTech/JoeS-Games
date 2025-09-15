@@ -9,7 +9,13 @@ nav ul{
 }
 nav a{
     display: block;
-    border: 2px solid white;
+    border: 2px solid black;
+    padding: 14px;
+    text-decoration: none;
+}
+nav a:hover{
+    display: block;
+    border: 2px solid gray;
     padding: 14px;
     text-decoration: none;
 }
