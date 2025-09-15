@@ -14,7 +14,8 @@ nav a{
     display: block;
     border-left: 2px solid darkgreen;
     border-right: 2px solid darkgreen;
-    padding: 14px 16px;
+    padding: 14px;
+    margin-left: 10px;
     text-decoration: none;
 }
 nav a:hover{
