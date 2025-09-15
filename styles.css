@@ -21,13 +21,13 @@ nav a{
     text-decoration: none;
 }
 nav a:hover{
-    display: block;
+    /* display: block;
     color:white;
-    outline-color: darkgreen;
+    outline-color: darkgreen; */
     background-color: #079D68;
     border-left: 2px solid white;
     border-right: 2px solid white;
-    padding: 14px;
+    /* padding: 14px;
     margin-left: 10px;
-    text-decoration: none;
+    text-decoration: none; */
 }
