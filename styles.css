@@ -1,8 +1,11 @@
+/* Header */
 header h1 {
     color: white;
     background-color: darkgreen;
     text-align: center;
 }
+
+/* Navigation bar */
 nav ul{
     background-color: lightgreen;
     border: 2px solid darkgreen;
@@ -35,4 +38,64 @@ nav a.currentpage{
     background-color: darkgray;
     border-left: 2px dashed white;
     border-right: 2px dashed white;
+}
+
+/* Index Page */
+/* Game Titles */
+div.game-title-container{
+    text-align: center;
+}
+h2.game-title{
+    background-color: darkgreen;
+    color: white;
+    display: inline-block;
+    padding: 14px;
+}
+#lightSwitchTitle{
+    
+}
+#breakBlocksTitle{
+    display: none;
+    clear: right;
+}
+#game3{
+    display: none;
+}
+
+
+/* Game Pictures */
+div.game-picture-container{
+    text-align: center;
+}
+.game-picture{
+    max-width: 50vw;
+    max-height: 50vh;
+}
+#breakBlocksPicture{
+    display: none;
+}
+
+/* Game Descriptions */
+p.game-description{
+    text-align: center;
+}
+#lightSwitchDescription{
+    clear: right;
+}
+#breakBlocksDescription{
+    display: none;
+    clear: right;
+}
+
+
+/* Misc */
+#leftArrow{
+    float: left;
+    max-height: 15vh;
+    transform: scaleX(-1);
+    display: none;
+}
+#rightArrow{
+    float: right;
+    max-height: 15vh;
 }
