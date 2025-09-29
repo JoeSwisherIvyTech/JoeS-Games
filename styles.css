@@ -1,11 +1,18 @@
 /* Header */
+header{
+    margin: 0px;
+}
 header h1 {
     color: white;
     background-color: darkgreen;
     text-align: center;
+    margin: 0px;
 }
 
 /* Navigation bar */
+nav{
+    margin: 0px;
+}
 nav ul{
     background-color: lightgreen;
     border: 2px solid darkgreen;
@@ -48,8 +55,10 @@ nav a.currentpage{
 h2.game-title{
     background-color: darkgreen;
     color: white;
-    display: inline-block;
+    display: block;
     padding: 14px;
+    margin: 0px;
+    text-align: center;
 }
 div.game-index-container{
     clear: both;
@@ -86,7 +95,8 @@ div.game-index-container{
 
 /* Game Descriptions */
 p.game-description{
-    text-align: justify;
+    text-align: center;
+    font-size: larger;
 }
 /* #lightSwitchDescription{
     clear: right;
