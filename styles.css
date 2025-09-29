@@ -128,3 +128,6 @@ p.game-description{
     height: 150px;
     background-color: #000000;
 }
+.light-switch-table caption{
+    font-size: larger;
+}
