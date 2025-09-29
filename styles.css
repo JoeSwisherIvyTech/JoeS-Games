@@ -118,3 +118,12 @@ p.game-description{
     float: right;
     max-height: 15vh;
 } */
+.light-switch-table{
+    margin-left: auto;
+    margin-right: auto;
+}
+.light-switch-table th{
+    width: 150px;
+    height: 150px;
+    background-color: #000000;
+}

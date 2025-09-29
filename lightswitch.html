@@ -21,9 +21,107 @@
     </Nav>
     <main>
         <!-- leaderboard for fastest time -->
-        <img src="resources/LightSwitch.png" alt="Light Switch game example. Five by five grid of squares.">
+         <div id="lightSwitchContainer">
+         <table class="light-switch-table" border="1">
+            <caption>Lightswitch test</caption>
+            <tr>
+                <th class="light-switch-panel" id="0,2"></th>
+                <th class="light-switch-panel" id="1,2"></th>
+                <th class="light-switch-panel" id="2,2"></th>
+            </tr>
+            <tr>
+                <th class="light-switch-panel" id="0,1"></th>
+                <th class="light-switch-panel" id="1,1"></th>
+                <th class="light-switch-panel" id="2,1"></th>
+            </tr>
+            <tr>
+                <th class="light-switch-panel" id="0,0"></th>
+                <th class="light-switch-panel" id="1,0"></th>
+                <th class="light-switch-panel" id="2,0"></th>
+            </tr>
+         </table>
+         </div>
+         <script>
+            let lightSwitchArray = [[document.getElementById("0,0"),document.getElementById("0,1"),document.getElementById("0,2")],
+                                    [document.getElementById("1,0"),document.getElementById("1,1"),document.getElementById("1,2")],
+                                    [document.getElementById("2,0"),document.getElementById("2,1"),document.getElementById("2,2")]];
+            let lightSwitchPanelState = [[false,false,false],
+                                        [false,false,false],
+                                        [false,false,false]]
+            let clickedX;
+            let clickedY;
+            for (row=0; row < 3; row++){
+                for (column=0; column < 3; column++){
+                    // console.log("on row " + row + " and column " + column);
+                    lightSwitchArray[row][column].addEventListener("click", function(){clickLight(this)});
+                    if (Math.random() > .5){
+                        lightSwitchPanelState[row][column] = true;
+                        lightSwitchArray[row][column].style.backgroundColor = "#0000FF";
+                    }
+                }
+            }
+
+            function clickLight(panel){
+                // panel.style.backgroundColor = "#000000";
+                clickedX = Number(panel.id.charAt(0));
+                clickedY = Number(panel.id.charAt(2));
+                // lightSwitchPanelState[clickedX][clickedY] = true;
+                // console.log("the id of this is " + clickedX + "," + clickedY + lightSwitchPanelState[clickedX][clickedY]);
+                // console.log(`the state of ${clickedX - 1}, ${clickedY} is ${lightSwitchPanelState[clickedX - 1][clickedY]}`)
+                if (lightSwitchPanelState[clickedX][clickedY]){
+                        lightSwitchPanelState[clickedX][clickedY] = false;
+                        panel.style.backgroundColor = "#000000";
+                    }
+                    else{
+                        lightSwitchPanelState[clickedX][clickedY] = true;
+                        panel.style.backgroundColor = "#0000FF"
+                    }
+                if (clickedX - 1 > -1){
+                    if (lightSwitchPanelState[clickedX - 1][clickedY]){
+                        lightSwitchPanelState[clickedX - 1][clickedY] = false;
+                        lightSwitchArray[Number(clickedX) - 1][Number(clickedY)].style.backgroundColor = "#000000";
+                    }
+                    else{
+                        lightSwitchPanelState[clickedX - 1][clickedY] = true;
+                        lightSwitchArray[Number(clickedX) - 1][Number(clickedY)].style.backgroundColor = "#0000FF"
+                    }
+                }
+                if (clickedX + 1 < 3){
+                    if (lightSwitchPanelState[clickedX + 1][clickedY]){
+                        lightSwitchPanelState[clickedX + 1][clickedY] = false;
+                        lightSwitchArray[Number(clickedX) + 1][Number(clickedY)].style.backgroundColor = "#000000";
+                    }
+                    else{
+                        lightSwitchPanelState[clickedX + 1][clickedY] = true;
+                        lightSwitchArray[Number(clickedX) + 1][Number(clickedY)].style.backgroundColor = "#0000FF"
+                    }
+                }
+                if (clickedY - 1 > -1){
+                    if (lightSwitchPanelState[clickedX][clickedY - 1]){
+                        lightSwitchPanelState[clickedX][clickedY - 1] = false;
+                        lightSwitchArray[Number(clickedX)][Number(clickedY - 1)].style.backgroundColor = "#000000";
+                    }
+                    else{
+                        lightSwitchPanelState[clickedX][clickedY - 1] = true;
+                        lightSwitchArray[Number(clickedX)][Number(clickedY - 1)].style.backgroundColor = "#0000FF"
+                    }
+                }
+                if (clickedY + 1 < 3){
+                    if (lightSwitchPanelState[clickedX][clickedY + 1]){
+                        lightSwitchPanelState[clickedX][clickedY + 1] = false;
+                        lightSwitchArray[Number(clickedX)][Number(clickedY + 1)].style.backgroundColor = "#000000";
+                    }
+                    else{
+                        lightSwitchPanelState[clickedX][clickedY + 1] = true;
+                        lightSwitchArray[Number(clickedX)][Number(clickedY + 1)].style.backgroundColor = "#0000FF"
+                    }
+                }
+            }
+         </script>
+        <h2 class="Under Construction">This page is under construction!!</h2>
         <p>This is a temporary page for testing. You are on the "Game 1" page. This will eventually be the home of LightSwitch, a game inspired by <a href="https://en.wikipedia.org/wiki/Lights_Out_(game)">Lights Out</a>.</p>
-        <p>This is a common game for beginner programmers to recreate for practice.</p>
+        <p>This is a common game for beginner programmers to recreate for practice. Currently my version has functionality for switching the lights in the proper pattern but it doesn't check if you've won yet.</p>
+        <p>Refresh the page to start a new game.</p>
     </main>
 </body>
 </html>
