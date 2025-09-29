@@ -53,8 +53,9 @@ h2.game-title{
 }
 div.game-index-container{
     clear: both;
-    background-color: aquamarine;
+    background-color: lightgreen;
     outline: auto;
+    outline-color: black;
     height: 25vh;
 }
 /* #lightSwitchTitle{
