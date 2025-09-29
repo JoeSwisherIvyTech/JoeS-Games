@@ -121,6 +121,7 @@ p.game-description{
 .light-switch-table{
     margin-left: auto;
     margin-right: auto;
+    empty-cells: show;
 }
 .light-switch-table th{
     width: 150px;
