@@ -13,35 +13,53 @@
     <Nav>
         <ul>
             <li><a href="./index.html" aria-current="page" class="currentpage">Home</a></li>
-            <li><a href="./game1.html">Game 1</a></li>
-            <li><a href="./game2.html">Game 2</a></li>
-            <li><a href="./game3.html">Game 3</a></li>
+            <li><a href="./lightswitch.html">Lightswitch</a></li>
+            <li><a href="./tic-tac-toe.html">Tic-Tac-Toe</a></li>
+            <li><a href="./mastermind.html">Mastermind</a></li>
             <li><a href="./about.html">About</a></li>
         </ul>
     </Nav>
     <main>
-        <div class="game-title-container">
+        <div class="game-index-container" id="lightSwitchIndexContainer">
+            <a id="lightSwitchPicture" href="./lightswitch.html"><img class="game-picture" src="./resources/LightSwitch logo.png" alt="Lightswitch game logo. Click here to play."></a>
+            <h2 class="game-title" id="lightSwitchTitle">Lightswitch</h2>
+            <p class="game-description" id="lightSwitchDescription">A game inspired by the classic game Light's Out! Change squares from on to off in this mindbending puzzle game.</p>
+        </div>
+        <br>
+        <div class="game-index-container" id="ticTacToeIndexContainer">
+            <a id="ticTacToePicture" href="./tic-tac-toe.html"><img class="game-picture" src="./resources/TIC-TAC-TOE logo.png" alt="Tic-Tac-Toe game logo. Click here to play."></a>
+            <h2 class="game-title" id="ticTacToeTitle">Tic-Tac-Toe</h2>
+            <p class="game-description" id="ticTacToeDescription">Get three in a row to win! Play against a computer or take turns against another player.</p>
+        </div>
+        <br>
+        <div class="game-index-container" id="masterMindIndexContainer">
+            <a id="masterMindPicture" href="./mastermind.html"><img class="game-picture" src="./resources/Mastermind logo.png" alt="Mastermind game logo. Click here to play."></a>
+            <h2 class="game-title" id="masterMindTitle">Mastermind</h2>
+            <p class="game-description" id="masterMindDescription">Guess the hidden pattern of colors!</p>
+        </div>
+        <!-- <div class="game-title-container">
             <h2 class="game-title" id="lightSwitchTitle">Light Switch</h2>
             <h2 class="game-title" id="breakBlocksTitle">Break Blocks</h2>
-            <h2 class="game-title" id="game3">Game 3</h2>
+            <h2 class="game-title" id="ticTacToeTitle">Game 3</h2>
         </div>
         <br>
         <div class="game-picture-container">
             <img class="game-navigation-arrow" id="leftArrow" src="./resources/purple_arrow.png" alt="Clickable arrow to change game.">
-            <a id="lightSwitchPicture" href="./game1.html"><img class="game-picture" src="resources/IndexPageParalellagramTest_LightSwitch.png" alt="Light Switch temporary promotional image."></a>
-            <a id="breakBlocksPicture" href="./game2.html"><img class="game-picture" src="resources/IndexPageParalellagramTest_BreakBlocks.png" alt="Break Blocks temporary promotional image."></a>
+            <a id="lightSwitchPicture" href="./lightswitch.html"><img class="game-picture" src="resources/IndexPageParalellagramTest_LightSwitch.png" alt="Light Switch temporary promotional image."></a>
+            <a id="breakBlocksPicture" href="./tic-tac-toe.html"><img class="game-picture" src="resources/IndexPageParalellagramTest_BreakBlocks.png" alt="Break Blocks temporary promotional image."></a>
             <img class="game-navigation-arrow" id="rightArrow" src="./resources/purple_arrow.png" alt="Clickable arrow to change game.">
         </div>
         <br>
         <div class="game-description-container">
             <p class="game-description" id="lightSwitchDescription">Light Switch is a puzzle game inspired by the classic game <a href="https://en.wikipedia.org/wiki/Lights_Out_(game)">Lights Out</a>. The rules are simple yet the game is deceptively challenging!</p>
             <p class="game-description" id="breakBlocksDescription">Break Blocks is an action game inspired by the classic game <a href="https://en.wikipedia.org/wiki/Breakout_(video_game)">Break Out</a>!</p>
-        </div>
+        </div> -->
         <br>
         <br>
         <p>This is a temporary page for testing. You are on the homepage. Click on the various games on the navigation bar at the top of the page to learn about the upcoming games.</p>
-        
-        <script>
+        <!-- change it so you can see all games on homepage at once. horizontally on desktop and vertically on mobile. mobile may neeed to scroll -->
+         <!-- hovering over an image on desktop will make it into a gif showing the game? unnecessary -->
+        <!-- <script>
             let changeArrowRight = document.getElementById("rightArrow");
             let changeArrowLeft = document.getElementById("leftArrow");
             let currentGame = 0;
@@ -87,7 +105,7 @@
                 currentGameDescription.style.display = "block";
             }
 
-        </script>
+        </script> -->
     </main>
 </body>
 </html>

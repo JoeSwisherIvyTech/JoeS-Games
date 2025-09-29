@@ -42,54 +42,61 @@ nav a.currentpage{
 
 /* Index Page */
 /* Game Titles */
-div.game-title-container{
+/* div.game-title-container{
     text-align: center;
-}
+} */
 h2.game-title{
     background-color: darkgreen;
     color: white;
     display: inline-block;
     padding: 14px;
 }
-#lightSwitchTitle{
-    
+div.game-index-container{
+    clear: both;
+    background-color: aquamarine;
+    outline: auto;
 }
-#breakBlocksTitle{
+/* #lightSwitchTitle{
+    
+} */
+/* #breakBlocksTitle{
     display: none;
     clear: right;
 }
 #game3{
     display: none;
-}
+} */
 
 
 /* Game Pictures */
-div.game-picture-container{
+/* div.game-picture-container{
     text-align: center;
-}
+} */
 .game-picture{
-    max-width: 50vw;
-    max-height: 50vh;
+    max-width: 25vw;
+    max-height: 25vh;
+    float: left;
+    outline: auto;
 }
-#breakBlocksPicture{
+/* #breakBlocksPicture{
     display: none;
-}
+} */
 
 /* Game Descriptions */
 p.game-description{
-    text-align: center;
+    text-align: justify;
 }
-#lightSwitchDescription{
+/* #lightSwitchDescription{
     clear: right;
 }
 #breakBlocksDescription{
     display: none;
     clear: right;
-}
+} */
 
 
 /* Misc */
-#leftArrow{
+/* #leftArrow{
     float: left;
     max-height: 15vh;
     transform: scaleX(-1);
@@ -98,4 +105,4 @@ p.game-description{
 #rightArrow{
     float: right;
     max-height: 15vh;
-}
+} */
