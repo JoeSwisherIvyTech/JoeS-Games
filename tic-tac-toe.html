@@ -64,13 +64,19 @@
                         playerOneTiles[clickedTile] = clickedTile;
                         ticTacPanel.textContent = "X";
                         checkWin(playerOneTiles);
-                        currentPlayerTurn = "playerTwo";
+                        if (winner == ""){
+                            currentPlayerTurn = "playerTwo";
+                            gameTitle.textContent = `Tic-Tac-Toe: ${currentPlayerTurn}'s turn.`
+                        }
                     }
                     else {
                         playerTwoTiles[clickedTile] = clickedTile;
                         ticTacPanel.textContent = "O";
                         checkWin(playerTwoTiles);
-                        currentPlayerTurn = "playerOne";
+                        if (winner == ""){
+                            currentPlayerTurn = "playerOne";
+                            gameTitle.textContent = `Tic-Tac-Toe: ${currentPlayerTurn}'s turn.`
+                        }
                     }
                 }
             }
