@@ -55,6 +55,7 @@
             let clickedTile
             let comboChecker = 0;
             let winner = "";
+            let round = 0;
             let gameTitle = document.getElementById("ticTacToeGameTitle");
 
             function clickTicTacToe(ticTacPanel){
@@ -77,6 +78,12 @@
                             currentPlayerTurn = "playerOne";
                             gameTitle.textContent = `Tic-Tac-Toe: ${currentPlayerTurn}'s turn.`
                         }
+                    }
+                    round++;
+                    if (round == 9 && winner == "")
+                    {
+                        winner = "tie";
+                        gameTitle.textContent = "It's a tie!"
                     }
                 }
             }
