@@ -37,75 +37,9 @@
             <h2 class="game-title" id="masterMindTitle">Mastermind</h2>
             <p class="game-description" id="masterMindDescription">Guess the hidden pattern of colors! This game is not yet available.</p>
         </div>
-        <!-- <div class="game-title-container">
-            <h2 class="game-title" id="lightSwitchTitle">Light Switch</h2>
-            <h2 class="game-title" id="breakBlocksTitle">Break Blocks</h2>
-            <h2 class="game-title" id="ticTacToeTitle">Game 3</h2>
-        </div>
-        <br>
-        <div class="game-picture-container">
-            <img class="game-navigation-arrow" id="leftArrow" src="./resources/purple_arrow.png" alt="Clickable arrow to change game.">
-            <a id="lightSwitchPicture" href="./lightswitch.html"><img class="game-picture" src="resources/IndexPageParalellagramTest_LightSwitch.png" alt="Light Switch temporary promotional image."></a>
-            <a id="breakBlocksPicture" href="./tic-tac-toe.html"><img class="game-picture" src="resources/IndexPageParalellagramTest_BreakBlocks.png" alt="Break Blocks temporary promotional image."></a>
-            <img class="game-navigation-arrow" id="rightArrow" src="./resources/purple_arrow.png" alt="Clickable arrow to change game.">
-        </div>
-        <br>
-        <div class="game-description-container">
-            <p class="game-description" id="lightSwitchDescription">Light Switch is a puzzle game inspired by the classic game <a href="https://en.wikipedia.org/wiki/Lights_Out_(game)">Lights Out</a>. The rules are simple yet the game is deceptively challenging!</p>
-            <p class="game-description" id="breakBlocksDescription">Break Blocks is an action game inspired by the classic game <a href="https://en.wikipedia.org/wiki/Breakout_(video_game)">Break Out</a>!</p>
-        </div> -->
         <br>
         <br>
         <p>This is a temporary page for testing. You are on the homepage. Click on the various games on the navigation bar at the top of the page to learn about the upcoming games.</p>
-        <!-- change it so you can see all games on homepage at once. horizontally on desktop and vertically on mobile. mobile may neeed to scroll -->
-         <!-- hovering over an image on desktop will make it into a gif showing the game? unnecessary -->
-        <!-- <script>
-            let changeArrowRight = document.getElementById("rightArrow");
-            let changeArrowLeft = document.getElementById("leftArrow");
-            let currentGame = 0;
-            const gameList = ["lightSwitch", "breakBlocks", "masterMind"]
-            changeArrowRight.addEventListener("click", function(){changeGameHandler("right")})
-            changeArrowLeft.addEventListener("click", function(){changeGameHandler("left")})
-            
-
-            function changeGameHandler(changeGameDirection){
-                let previousGameTitle = document.getElementById(gameList[currentGame].concat("Title"));
-                previousGameTitle.style.display = "none";
-                let previousGamePicture = document.getElementById(gameList[currentGame].concat("Picture"))
-                previousGamePicture.style.display = "none";
-                let previousGameDescription = document.getElementById(gameList[currentGame].concat("Description"))
-                previousGameDescription.style.display = "none";
-                
-                if (changeGameDirection === "right"){
-                    currentGame += 1;
-                }
-                else if (changeGameDirection === "left"){
-                    currentGame -= 1;
-                }
-                if (currentGame === 0){
-                    changeArrowLeft.style.display = "none";
-                }
-                else if (currentGame > 0)
-                {
-                    changeArrowLeft.style.display = "inline";
-                    changeArrowLeft.style.float = "left";
-                }
-                if (currentGame < 1){
-                    changeArrowRight.style.display = "inline";
-                    changeArrowRight.style.float = "right";
-                }
-                else if (currentGame = 1){
-                    changeArrowRight.style.display = "none";
-                }
-                let currentGameTitle = document.getElementById(gameList[currentGame].concat("Title"));
-                currentGameTitle.style.display = "inline-block";
-                let currentGamePicture = document.getElementById(gameList[currentGame].concat("Picture"))
-                currentGamePicture.style.display = "block";
-                let currentGameDescription = document.getElementById(gameList[currentGame].concat("Description"))
-                currentGameDescription.style.display = "block";
-            }
-
-        </script> -->
     </main>
 </body>
 </html>

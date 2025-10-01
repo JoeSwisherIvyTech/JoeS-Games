@@ -49,9 +49,7 @@ nav a.currentpage{
 
 /* Index Page */
 /* Game Titles */
-/* div.game-title-container{
-    text-align: center;
-} */
+
 h2.game-title{
     background-color: darkgreen;
     color: white;
@@ -67,57 +65,25 @@ div.game-index-container{
     outline-color: black;
     height: 25vh;
 }
-/* #lightSwitchTitle{
-    
-} */
-/* #breakBlocksTitle{
-    display: none;
-    clear: right;
-}
-#game3{
-    display: none;
-} */
+
 
 
 /* Game Pictures */
-/* div.game-picture-container{
-    text-align: center;
-} */
+
 .game-picture{
     max-width: 25vw;
     max-height: 25vh;
     float: left;
     outline: auto;
 }
-/* #breakBlocksPicture{
-    display: none;
-} */
+
 
 /* Game Descriptions */
 p.game-description{
     text-align: center;
     font-size: larger;
 }
-/* #lightSwitchDescription{
-    clear: right;
-}
-#breakBlocksDescription{
-    display: none;
-    clear: right;
-} */
 
-
-/* Misc */
-/* #leftArrow{
-    float: left;
-    max-height: 15vh;
-    transform: scaleX(-1);
-    display: none;
-}
-#rightArrow{
-    float: right;
-    max-height: 15vh;
-} */
 .light-switch-table{
     margin-left: auto;
     margin-right: auto;
