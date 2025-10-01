@@ -22,6 +22,54 @@
     <main>
         <!-- leaderboard for consecutive wins -->
          <!-- vs computer or vs human. computer does a random spot that is free each round -->
+        <table class="tic-tac-toe-table" border="1">
+            <caption>Tic-Tac-Toe</caption>
+            <tr>
+                <th class="tic-tac-toe-panel" id="ticTacToe_0"></th>
+                <th class="tic-tac-toe-panel" id="ticTacToe_1"></th>
+                <th class="tic-tac-toe-panel" id="ticTacToe_2"></th>
+            </tr>
+            <tr>
+                <th class="tic-tac-toe-panel" id="ticTacToe_3"></th>
+                <th class="tic-tac-toe-panel" id="ticTacToe_4"></th>
+                <th class="tic-tac-toe-panel" id="ticTacToe_5"></th>
+            </tr>
+            <tr>
+                <th class="tic-tac-toe-panel" id="ticTacToe_6"></th>
+                <th class="tic-tac-toe-panel" id="ticTacToe_7"></th>
+                <th class="tic-tac-toe-panel" id="ticTacToe_8"></th>
+            </tr>
+        </table>
+        <script>
+            let ticTacToeArray = []
+            for (i = 0; i <=8; i++){
+                ticTacToeArray[i] = document.getElementById(`ticTacToe_${i}`)
+                ticTacToeArray[i].addEventListener("click", function(){clickTicTacToe(this)})
+            }
+            let winningCombos = ["012","345","678","036","147","258","048","246"];
+            let playerOneTiles = [];
+            let playerTwoTiles = [];
+            let playerOneName = "";
+            let playerTwoName = "";
+            let currentPlayerTurn = "playerOne"
+            let clickedTile
+
+            function clickTicTacToe(ticTacPanel){
+                clickedTile = ticTacPanel.id.charAt(10)
+                if (ticTacPanel.textContent == ""){
+                    if (currentPlayerTurn == "playerOne"){
+                        playerOneTiles[clickedTile] = clickedTile;
+                        ticTacPanel.textContent = "X";
+                        currentPlayerTurn = "playerTwo";
+                    }
+                    else {
+                        playerTwoTiles[clickedTile] = clickedTile;
+                        ticTacPanel.textContent = "O";
+                        currentPlayerTurn = "playerOne";
+                    }
+                }
+            }
+        </script>
         <h2 class="Under Construction">This page is under construction!!</h2>
         <p>This is a temporary page for testing. This will eventually be the home of <a href="https://en.wikipedia.org/wiki/Tic-tac-toe">Tic-Tac-Toe</a>.</p>
 </body>

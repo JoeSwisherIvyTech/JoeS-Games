@@ -131,3 +131,16 @@ p.game-description{
 .light-switch-table caption{
     font-size: larger;
 }
+
+.tic-tac-toe-table{
+    margin-left: auto;
+    margin-right: auto;
+    empty-cells: show;
+}
+.tic-tac-toe-table th{
+    width: 150px;
+    height: 150px;
+}
+.tic-tac-toe-table caption{
+    font-size: larger;
+}
