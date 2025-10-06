@@ -8,22 +8,23 @@
 </head>
 <body>
     <header>
+        <a href="./index.html"><img class="website-logo" src="./resources/joesGamesLogo.png" alt="Joe's Games website logo. Minimalist design with gaming controller. Click here to go to index page."></a>
         <h1>Tic-Tac-Toe</h1>
+        <Nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./lightswitch.html">Lightswitch</a></li>
+                <li><a href="./tic-tac-toe.html" aria-current="page" class="currentpage">Tic-Tac-Toe</a></li>
+                <li><a href="./mastermind.html">Mastermind</a></li>
+                <li><a href="./about.html">About</a></li>
+            </ul>
+        </Nav>
     </header>
-    <Nav>
-        <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./lightswitch.html">Lightswitch</a></li>
-            <li><a href="./tic-tac-toe.html" aria-current="page" class="currentpage">Tic-Tac-Toe</a></li>
-            <li><a href="./mastermind.html">Mastermind</a></li>
-            <li><a href="./about.html">About</a></li>
-        </ul>
-    </Nav>
     <main>
         <!-- leaderboard for consecutive wins -->
          <!-- vs computer or vs human. computer does a random spot that is free each round -->
         <table class="tic-tac-toe-table" border="1">
-            <caption id="ticTacToeGameTitle">Tic-Tac-Toe: playerOne's turn.</caption>
+            <caption id="ticTacToeGameTitle"><strong>Tic-Tac-Toe: playerOne's turn.</strong></caption>
             <tr>
                 <th class="tic-tac-toe-panel" id="ticTacToe_0"></th>
                 <th class="tic-tac-toe-panel" id="ticTacToe_1"></th>
