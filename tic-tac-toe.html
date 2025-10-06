@@ -51,9 +51,12 @@
             let playerTwoTiles = [];
             let playerOneName = "";
             let playerTwoName = "";
+            let playerOneColor = "#0000FF";
+            let playerTwoColor = "#00FF00";
             let currentPlayerTurn = "playerOne"
             let clickedTile
             let comboChecker = 0;
+            let comboTiles = [];
             let winner = "";
             let round = 0;
             let gameTitle = document.getElementById("ticTacToeGameTitle");
@@ -95,6 +98,7 @@
                         // console.log(`playerOneTiles is ${playerTiles} the current digit of combo ${combo} is ${combo.charAt(i)}`)
                         if (playerTiles.indexOf(combo.charAt(i)) > -1){
                             comboChecker++
+                            comboTiles[i] = combo.charAt(i);
                         }
                         else{
                             comboChecker = 0;
@@ -105,6 +109,15 @@
                     if (comboChecker == 3){
                         winner = currentPlayerTurn;
                         gameTitle.textContent = `${winner} is the winner!!`;
+                        for (i = 0; i < 3; i++){
+                            if (winner == "playerOne"){
+                                ticTacToeArray[comboTiles[i]].style.backgroundColor = playerOneColor;
+                            }
+                            else{
+                                ticTacToeArray[comboTiles[i]].style.backgroundColor = playerTwoColor;
+                            }
+                            ticTacToeArray[comboTiles[i]].style.color = "#FFFFFF";
+                        }
                         break;
                     }
                 }
