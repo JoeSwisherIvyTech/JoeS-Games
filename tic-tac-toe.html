@@ -23,6 +23,36 @@
     <main>
         <!-- leaderboard for consecutive wins -->
          <!-- vs computer or vs human. computer does a random spot that is free each round -->
+         <div class="tic-tac-toe-form-container">
+            <form class="tictactoe-opponent-form" action="">
+                <p>
+                    <label for="vsHuman">vs. Human</label>
+                    <input type="radio" name="chooseOpponent" id="vsHuman">
+                    <label for="vsComputer">vs. Computer</label>
+                    <input type="radio" name="chooseOpponent" id="vsComputer">
+                </p>
+                <p>
+                    <input type="button" value="Submit" id="chooseOpponentSubmit">
+                </p>
+            </form>
+            <form class="tictactoe-player-customization-form hidden" action="">
+                <p>
+                    <label for="playerOneNameField">Player One Name:</label>
+                    <input type="text" name="playerNames" id="playerOneNameField">
+                    <label for="playerOneColorChooser">Choose player one's color:</label>
+                    <input type="color" name="playerColors" id="playerOneColorChooser">
+                </p>
+                <p>
+                    <label for="playerTwoNameField">Player Two Name:</label>
+                    <input type="text" name="playerNames" id="playerTwoNameField">
+                    <label for="playerTwoColorChooser">Choose player two's color:</label>
+                    <input type="color" name="playerColors" id="playerTwoColorChooser">
+                </p>
+                <p>
+                    <input type="button" value="Submit" id="playerCustomizationSubmit">
+                </p>
+            </form>
+        </div>
         <table class="tic-tac-toe-table" border="1">
             <caption id="ticTacToeGameTitle"><strong>Tic-Tac-Toe: playerOne's turn.</strong></caption>
             <tr>
