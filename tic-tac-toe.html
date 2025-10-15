@@ -24,8 +24,8 @@
         <!-- leaderboard for consecutive wins -->
          <!-- vs computer or vs human. computer does a random spot that is free each round -->
          <div class="tic-tac-toe-form-container">
-            <p><strong>Form in development; no functionality as of yet.</strong></p>
-            <form class="tictactoe-opponent-form" action="">
+            <!-- <p><strong>Form in development; no functionality as of yet.</strong></p> -->
+            <!-- <form class="tictactoe-opponent-form" action="">
                 <p>
                     <label for="vsHuman">vs. Human</label>
                     <input type="radio" name="chooseOpponent" id="vsHuman">
@@ -33,28 +33,34 @@
                     <input type="radio" name="chooseOpponent" id="vsComputer">
                 </p>
                 <p>
-                    <input type="button" value="Submit" id="chooseOpponentSubmit">
+                    <input type="button" value="Submit" id="gameModeSubmit">
                 </p>
-            </form>
-            <form class="tictactoe-player-customization-form hidden" action="">
+            </form> -->
+            <form class="tictactoe-player-customization-form" id="playerCustomizationForm" action="">
                 <p>
                     <label for="playerOneNameField">Player One Name:</label>
-                    <input type="text" name="playerNames" id="playerOneNameField">
+                    <input type="text" name="playerNames" id="playerOneNameField" value="playerOne">
                     <label for="playerOneColorChooser">Choose player one's color:</label>
-                    <input type="color" name="playerColors" id="playerOneColorChooser">
+                    <input type="color" name="playerColors" id="playerOneColorPicker" value="#0000FF">
+                </p>
+                <p class="nameInvalid dont-display" id="nameOneInvalid">
+                    Please input a name.
                 </p>
                 <p>
                     <label for="playerTwoNameField">Player Two Name:</label>
-                    <input type="text" name="playerNames" id="playerTwoNameField">
+                    <input type="text" name="playerNames" id="playerTwoNameField" value="playerTwo">
                     <label for="playerTwoColorChooser">Choose player two's color:</label>
-                    <input type="color" name="playerColors" id="playerTwoColorChooser">
+                    <input type="color" name="playerColors" id="playerTwoColorPicker" value="#FF0000">
+                </p>
+                <p class="nameInvalid dont-display" id="nameTwoInvalid">
+                    Please input a name.
                 </p>
                 <p>
                     <input type="button" value="Submit" id="playerCustomizationSubmit">
                 </p>
             </form>
         </div>
-        <table class="tic-tac-toe-table" border="1">
+        <table class="tic-tac-toe-table dont-display" id="ticTacToeTable" border="1">
             <caption id="ticTacToeGameTitle"><strong>Tic-Tac-Toe: playerOne's turn.</strong></caption>
             <tr>
                 <th class="tic-tac-toe-panel empty" id="ticTacToe_0"></th>
@@ -84,8 +90,22 @@
             let playerOneName = "";
             let playerTwoName = "";
             let playerOneColor = "#0000FF";
-            let playerTwoColor = "#00FF00";
+            let playerTwoColor = "#FF0000";
             let currentPlayerTurn = "playerOne"
+            // gameModeSelectButton = document.getElementById("gameModeSubmit");
+            // gameModeSelectButton.addEventListener("click", function(){gameModeSelect()})
+            playerCustomizationSubmitButton = document.getElementById("playerCustomizationSubmit");
+            playerCustomizationSubmitButton.addEventListener("click", function(){playerCustomizationSubmission()})
+            playerOneNameField = document.getElementById("playerOneNameField");
+            nameOneInvalid = document.getElementById("nameOneInvalid");
+            playerOneNameField.addEventListener("input", function(){validateName(this, nameOneInvalid)})
+            playerTwoNameField = document.getElementById("playerTwoNameField");
+            nameTwoInvalid = document.getElementById("nameTwoInvalid");
+            playerTwoNameField.addEventListener("input", function(){validateName(this, nameTwoInvalid)})
+            playerOneColorPicker = document.getElementById("playerOneColorPicker");
+            playerTwoColorPicker = document.getElementById("playerTwoColorPicker");
+            playerCustomizationForm = document.getElementById("playerCustomizationForm");
+            ticTacToeTable = document.getElementById("ticTacToeTable");
             let clickedTile
             let comboChecker = 0;
             let comboTiles = [];
@@ -93,17 +113,57 @@
             let round = 0;
             let gameTitle = document.getElementById("ticTacToeGameTitle");
 
+            // function gameModeSelect(){
+
+            // }
+            function playerCustomizationSubmission(){
+                if (playerOneNameField.value.trim() != ""){
+                    playerOneName = playerOneNameField.value;
+                }
+                else{
+                    playerOneName = "playerOne";
+                }
+                if (playerTwoNameField.value.trim() != ""){
+                    playerTwoName = playerTwoNameField.value;
+                }
+                else{
+                    playerTwoName = "playerTwo";
+                }
+                playerOneColor = playerOneColorPicker.value;
+                playerTwoColor = playerTwoColorPicker.value;
+                currentPlayerTurn = playerOneName;
+                gameTitle.textContent = `Tic-Tac-Toe: ${currentPlayerTurn}'s turn.`
+                gameTitle.style.border = `4px solid ${playerOneColor}`;
+                playerCustomizationForm.classList.add("dont-display");
+                ticTacToeTable.classList.remove("dont-display");
+            }
+            function validateName(userName, userNameInvalid){
+                if (userName.value.trim() == ""){
+                    userNameInvalid.classList.remove("dont-display");
+                    userName.style.backgroundColor = "#FF0000";
+                    playerCustomizationSubmitButton.disabled = true;
+                }
+                else{
+                    userNameInvalid.classList.add("dont-display");
+                    userName.style.backgroundColor = "#FFFFFF";
+                    if (nameOneInvalid.classList.contains("dont-display") && nameTwoInvalid.classList.contains("dont-display")){
+                        playerCustomizationSubmitButton.disabled = false;
+                    }
+                }
+            }
+
             function clickTicTacToe(ticTacPanel){
                 clickedTile = ticTacPanel.id.charAt(10)
                 if (ticTacPanel.textContent == "" && winner == ""){
-                    if (currentPlayerTurn == "playerOne"){
+                    if (currentPlayerTurn == playerOneName){
                         playerOneTiles[clickedTile] = clickedTile;
                         ticTacPanel.textContent = "X";
                         ticTacPanel.classList.remove("empty");
                         checkWin(playerOneTiles);
                         if (winner == ""){
-                            currentPlayerTurn = "playerTwo";
+                            currentPlayerTurn = playerTwoName;
                             gameTitle.textContent = `Tic-Tac-Toe: ${currentPlayerTurn}'s turn.`
+                            gameTitle.style.border = `4px solid ${playerTwoColor}`;
                         }
                     }
                     else {
@@ -112,15 +172,17 @@
                         ticTacPanel.classList.remove("empty");
                         checkWin(playerTwoTiles);
                         if (winner == ""){
-                            currentPlayerTurn = "playerOne";
+                            currentPlayerTurn = playerOneName;
                             gameTitle.textContent = `Tic-Tac-Toe: ${currentPlayerTurn}'s turn.`
+                            gameTitle.style.border = `4px solid ${playerOneColor}`;
                         }
                     }
                     round++;
                     if (round == 9 && winner == "")
                     {
                         winner = "tie";
-                        gameTitle.textContent = "It's a tie!"
+                        gameTitle.textContent = "It's a tie! Refresh to play again."
+                        gameTitle.style.border = `4px solid #000000`;
                     }
                 }
             }
@@ -142,13 +204,15 @@
                     }
                     if (comboChecker == 3){
                         winner = currentPlayerTurn;
-                        gameTitle.textContent = `${winner} is the winner!!`;
+                        gameTitle.textContent = `${winner} is the winner!! Refresh to play again.`;
                         for (i = 0; i < 3; i++){
                             if (winner == "playerOne"){
                                 ticTacToeArray[comboTiles[i]].style.backgroundColor = playerOneColor;
+                                gameTitle.style.border = `4px solid ${playerOneColor}`;
                             }
                             else{
                                 ticTacToeArray[comboTiles[i]].style.backgroundColor = playerTwoColor;
+                                gameTitle.style.border = `4px solid ${playerTwoColor}`;
                             }
                             ticTacToeArray[comboTiles[i]].style.color = "#FFFFFF";
                         }

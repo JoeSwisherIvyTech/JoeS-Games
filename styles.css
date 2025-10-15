@@ -114,6 +114,9 @@ p.game-description{
 }
 .light-switch-table caption{
     font-size: larger;
+    font-weight: bold;
+    border: 2px solid black;
+    background-color: lightgreen;
 }
 
 .tic-tac-toe-table{
@@ -131,6 +134,19 @@ p.game-description{
 }
 .tic-tac-toe-table caption{
     font-size: larger;
+    font-weight: bold;
+    background-color: lightgreen;
+}
+.tic-tac-toe-form-container{
+    text-align: center;
+}
+.tictactoe-player-customization-form{
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    padding: 0px 32px;
+    border: 2px solid #000000;
+    background-color: lightgreen;
 }
 .mastermind-table{
     margin-left: auto;
@@ -154,4 +170,18 @@ p.game-description{
     width: 75px;
     height: 75px;
     background-color: lightgreen;
+}
+.hidden{
+    visibility: hidden;
+}
+.dont-display{
+    display: none;
+}
+#ticTacToeGameTitle{
+    border: 2px solid #000000;
+}
+.nameInvalid{
+    color: white;
+    background-color: red;
+    font-weight: bold;
 }
