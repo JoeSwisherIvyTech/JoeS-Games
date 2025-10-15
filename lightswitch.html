@@ -53,6 +53,7 @@
             let lightTitle = document.getElementById("lightSwitchGameTitle")
             let clickedX;
             let clickedY;
+            let gameOver = false;
             for (row=0; row < 3; row++){
                 for (column=0; column < 3; column++){
                     // console.log("on row " + row + " and column " + column);
@@ -66,6 +67,7 @@
             }
 
             function clickLight(panel){
+                if (gameOver == false){
                 // panel.style.backgroundColor = "#000000";
                 clickedX = Number(panel.id.charAt(0));
                 clickedY = Number(panel.id.charAt(2));
@@ -132,7 +134,9 @@
                 }
                 if (numLightsOn == 0){
                     lightTitle.textContent = "You win! Refresh to start a new game.";
+                    gameOver = true;
                 }
+            }
             }
          </script>
         <h2 class="Under Construction">This page is under construction!!</h2>
