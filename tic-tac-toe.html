@@ -57,19 +57,19 @@
         <table class="tic-tac-toe-table" border="1">
             <caption id="ticTacToeGameTitle"><strong>Tic-Tac-Toe: playerOne's turn.</strong></caption>
             <tr>
-                <th class="tic-tac-toe-panel" id="ticTacToe_0"></th>
-                <th class="tic-tac-toe-panel" id="ticTacToe_1"></th>
-                <th class="tic-tac-toe-panel" id="ticTacToe_2"></th>
+                <th class="tic-tac-toe-panel empty" id="ticTacToe_0"></th>
+                <th class="tic-tac-toe-panel empty" id="ticTacToe_1"></th>
+                <th class="tic-tac-toe-panel empty" id="ticTacToe_2"></th>
             </tr>
             <tr>
-                <th class="tic-tac-toe-panel" id="ticTacToe_3"></th>
-                <th class="tic-tac-toe-panel" id="ticTacToe_4"></th>
-                <th class="tic-tac-toe-panel" id="ticTacToe_5"></th>
+                <th class="tic-tac-toe-panel empty" id="ticTacToe_3"></th>
+                <th class="tic-tac-toe-panel empty" id="ticTacToe_4"></th>
+                <th class="tic-tac-toe-panel empty" id="ticTacToe_5"></th>
             </tr>
             <tr>
-                <th class="tic-tac-toe-panel" id="ticTacToe_6"></th>
-                <th class="tic-tac-toe-panel" id="ticTacToe_7"></th>
-                <th class="tic-tac-toe-panel" id="ticTacToe_8"></th>
+                <th class="tic-tac-toe-panel empty" id="ticTacToe_6"></th>
+                <th class="tic-tac-toe-panel empty" id="ticTacToe_7"></th>
+                <th class="tic-tac-toe-panel empty" id="ticTacToe_8"></th>
             </tr>
         </table>
         <script>
@@ -99,6 +99,7 @@
                     if (currentPlayerTurn == "playerOne"){
                         playerOneTiles[clickedTile] = clickedTile;
                         ticTacPanel.textContent = "X";
+                        ticTacPanel.classList.remove("empty");
                         checkWin(playerOneTiles);
                         if (winner == ""){
                             currentPlayerTurn = "playerTwo";
@@ -108,6 +109,7 @@
                     else {
                         playerTwoTiles[clickedTile] = clickedTile;
                         ticTacPanel.textContent = "O";
+                        ticTacPanel.classList.remove("empty");
                         checkWin(playerTwoTiles);
                         if (winner == ""){
                             currentPlayerTurn = "playerOne";
@@ -149,6 +151,11 @@
                                 ticTacToeArray[comboTiles[i]].style.backgroundColor = playerTwoColor;
                             }
                             ticTacToeArray[comboTiles[i]].style.color = "#FFFFFF";
+                        }
+                        for (i=0; i < 9; i++){
+                            if (ticTacToeArray[i].textContent == ""){
+                                ticTacToeArray[i].classList.remove("empty");
+                            }
                         }
                         break;
                     }
