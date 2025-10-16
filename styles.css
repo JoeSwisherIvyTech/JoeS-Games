@@ -157,6 +157,7 @@ p.game-description{
     width: 75px;
     height: 75px;
     background-color: lightgreen;
+    font-size: 30px;
 }
 .mastermind-table caption{
     font-size: larger;

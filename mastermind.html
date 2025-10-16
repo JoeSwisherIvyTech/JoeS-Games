@@ -152,16 +152,12 @@
                                 secretComboYellowCheck.push(secretCombo[i])
                             }
                         }
-                        for (i=0; i < secretComboYellowCheck.length; i++){
-                            for (x=0; x<5; x++){
-                                if (!playerProgress[x]){
-                                    // console.log(`playercombo[x] ${playerCombo[x]}; secretYellow ${secretComboYellowCheck} indexof ${secretComboYellowCheck.indexOf(playerCombo[x])}`)
-                                    if (secretComboYellowCheck.indexOf(playerCombo[x]) > -1){
-                                        // console.log("made it")
-                                        playerProgress[x] = "yellow";
-                                        secretComboYellowCheck.splice(secretComboYellowCheck.indexOf(playerCombo[x]), 1);
-                                        break;
-                                    }
+                        for (x = 0; x < 5; x++) {
+                            if (!playerProgress[x]) {
+                                let index = secretComboYellowCheck.indexOf(playerCombo[x]);
+                                if (index > -1) {
+                                    playerProgress[x] = "yellow";
+                                    secretComboYellowCheck.splice(index, 1);
                                 }
                             }
                         }
