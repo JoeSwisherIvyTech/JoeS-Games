@@ -42,6 +42,13 @@
             </tr>
          </table>
          </div>
+         <div class="instructions-container">
+            <h2>How To Play</h2>
+            <p>Pressing a panel toggles its state between on and off, </p> 
+            <p>as well as the surrounding panels directly above, below, left, and right of the panel you press.</p>
+            <br>
+            <p>Your goal is to turn all of the panels off. Refreshing the page starts a new game. Good luck!</p>
+         </div>
          <script>
             let lightSwitchArray = [[document.getElementById("0,0"),document.getElementById("0,1"),document.getElementById("0,2")],
                                     [document.getElementById("1,0"),document.getElementById("1,1"),document.getElementById("1,2")],
@@ -134,15 +141,16 @@
                 }
                 if (numLightsOn == 0){
                     lightTitle.textContent = "You win! Refresh to start a new game.";
+                    lightTitle.style.backgroundColor = "#FFD105"
                     gameOver = true;
                 }
             }
             }
          </script>
-        <h2 class="Under Construction">This page is under construction!!</h2>
+        <!-- <h2 class="Under Construction">This page is under construction!!</h2>
         <p>This is a temporary page for testing. This will eventually be the home of LightSwitch, a game inspired by <a href="https://en.wikipedia.org/wiki/Lights_Out_(game)">Lights Out</a>.</p>
         <p>This is a common game for beginner programmers to recreate for practice. Currently my version is playable and will tell you if you've won in the title, but you need to refresh to get a new game.</p>
-        <p>Refresh the page to start a new game. The goal is to turn off all of the lights. Clicking a square changes its state, as well as the adjacent squares' states.</p>
+        <p>Refresh the page to start a new game. The goal is to turn off all of the lights. Clicking a square changes its state, as well as the adjacent squares' states.</p> -->
     </main>
 </body>
 </html>

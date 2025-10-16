@@ -25,7 +25,7 @@
          <!-- daily challlenge with leaderboard for moves taken? -->
           <!-- 5 colors to guess, square, circle, triangle, diamond, star for colorblind -->
         <table class="mastermind-table" border="1">
-            <caption><strong>Mastermind: Under Construction</strong></caption>
+            <caption id="mastermindTitle">Mastermind</caption>
             <tr>
                 <th class="mastermind-panel" id="mastermindRow0Col0"></th>
                 <th class="mastermind-panel" id="mastermindRow0Col1"></th>
@@ -65,14 +65,137 @@
         <br>
         <table class="mastermind-player-table" border="1">
             <tr>
-                <th class="mastermind-player-panel"></th>
-                <th class="mastermind-player-panel"></th>
-                <th class="mastermind-player-panel"></th>
-                <th class="mastermind-player-panel"></th>
-                <th class="mastermind-player-panel"></th>
-                <th class="mastermind-player-panel" id="Backspace"></th>
+                <th class="mastermind-player-panel-spacer"></th>
+                <th class="mastermind-player-panel" id="input1">1</th>
+                <th class="mastermind-player-panel" id="input2">2</th>
+                <th class="mastermind-player-panel" id="input3">3</th>
+                <th class="mastermind-player-panel" id="input4">4</th>
+                <th class="mastermind-player-panel" id="input5">5</th>
+                <th class="mastermind-player-panel-spacer"></th>
+            </tr>
+            <tr>
+                <th class="mastermind-player-panel" id="Enter">ENTER</th>
+                <th class="mastermind-player-panel" id="input6">6</th>
+                <th class="mastermind-player-panel" id="input7">7</th>
+                <th class="mastermind-player-panel" id="input8">8</th>
+                <th class="mastermind-player-panel" id="input9">9</th>
+                <th class="mastermind-player-panel" id="input0">0</th>
+                <th class="mastermind-player-panel" id="Backspace">⌫</th>
             </tr>
         </table>
+        <div class="instructions-container">
+            <h2>How To Play</h2>
+            <p>The mastermind has come up with a secret combination, and you have to guess what it is!</p> 
+            <p>Each round, guess a combination of numbers. If a number you guess is in the right spot, it will be highlighted GREEN.</p> 
+            <p>If it's in the secret combination but you have it in the wrong spot, it will be highlighted YELLOW.</p>
+            <p>There can be multiples of the same number in the combination.</p>
+            <br>
+            <p>Guess the mastermind's secret combination in less than 5 rounds to win. Refreshing the page starts a new game. Good luck!</p>
+         </div>
+         <script>
+            let gameTitle = document.getElementById("mastermindTitle");
+            let secretCombo = [];
+            for (i=0; i < 5; i++){
+                secretCombo[i] = Math.floor(Math.random()*10);
+            }
+            let playerButtons = [];
+            for (i=0; i<10; i++){
+                playerButtons[i] = document.getElementById(`input${i}`);
+                playerButtons[i].addEventListener("click", function(){clickMastermind(this)});
+            }
+            let mastermindArray = [[],[],[],[],[]]
+            for (row=0; row<5; row++){
+                for (column=0; column<5; column++){
+                    mastermindArray[row][column] = document.getElementById(`mastermindRow${row}Col${column}`);
+                }
+            }
+            let playerCombo = [];
+            let playerProgress = [false, false, false, false, false];
+            let secretComboYellowCheck = []
+            let guessCount = 0;
+            let correctCount = 0;
+            let gameOver = false;
+            let backspace = document.getElementById("Backspace");
+            backspace.addEventListener("click", function(){clickBackspace()})
+            let enter = document.getElementById("Enter");
+            enter.addEventListener("click", function(){clickEnter()})
+
+            function clickMastermind(clickedPanel){
+                if (!gameOver){
+                    clickedNumber = Number(clickedPanel.id.charAt(5));
+                    if (playerCombo.length < 5){
+                        playerCombo.push(clickedNumber);
+                        mastermindArray[guessCount][playerCombo.length-1].textContent = clickedNumber;
+                    }
+                }
+            }
+            function clickBackspace(){
+                if (!gameOver){
+                    if (playerCombo.length > 0){
+                        playerCombo.pop();
+                        mastermindArray[guessCount][playerCombo.length].textContent = "";
+                    }
+                }
+            }
+            function clickEnter(){
+                // check each slot to see if it's correct
+                if (!gameOver){
+                    if (playerCombo.length == 5){ 
+                        for (i=0; i<5; i++){
+                            if (secretCombo[i] == playerCombo[i]){
+                                playerProgress[i] = true;
+                            }
+                        }
+                        // check if number is in the combo but in wrong spot
+                        for (i=0; i<5; i++){
+                            if (!playerProgress[i]){
+                                secretComboYellowCheck.push(secretCombo[i])
+                            }
+                        }
+                        for (i=0; i < secretComboYellowCheck.length; i++){
+                            for (x=0; x<5; x++){
+                                if (!playerProgress[x]){
+                                    // console.log(`playercombo[x] ${playerCombo[x]}; secretYellow ${secretComboYellowCheck} indexof ${secretComboYellowCheck.indexOf(playerCombo[x])}`)
+                                    if (secretComboYellowCheck.indexOf(playerCombo[x]) > -1){
+                                        // console.log("made it")
+                                        playerProgress[x] = "yellow";
+                                        secretComboYellowCheck.splice(secretComboYellowCheck.indexOf(playerCombo[x]), 1);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        for (i=0; i < 5; i++){
+                            if (playerProgress[i] == true){
+                                mastermindArray[guessCount][i].style.backgroundColor = "#00FF00";
+                                correctCount += 1;
+                            }
+                            else if(playerProgress[i] == "yellow"){
+                                mastermindArray[guessCount][i].style.backgroundColor = "#FFD105";
+                            }
+                        }
+                        if (correctCount == 5){
+                            gameTitle.textContent = "You win! Refresh to play again.";
+                            gameTitle.style.backgroundColor = "#FFD105"
+                            gameOver = true;
+                        }
+                        // console.log(secretCombo);
+                        // console.log(playerProgress);
+                        guessCount += 1;
+                        if (guessCount > 4 && !gameOver){
+                            gameTitle.textContent = `You lose! The code was ${secretCombo}. Refresh to play again.`;
+                            gameTitle.style.color = "#FFFFFF"
+                            gameTitle.style.backgroundColor = "#FF0000"
+                            gameOver = true;
+                        }
+                        correctCount = 0;
+                        playerProgress = [false, false, false, false, false];
+                        playerCombo = [];
+                        secretComboYellowCheck = [];
+                    }
+            }
+            }
+         </script>
         <h2 class="Under Construction">This page is under construction!!</h2>
           <p>This is a temporary page for testing. This will eventually be the home of <a href="https://en.wikipedia.org/wiki/Mastermind_(board_game)">Mastermind</a>.</p>
     </main>
